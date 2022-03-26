@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo Cine</title>
+    <!-- BOOSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body background-color="color: lightblue;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Catalogo Cine</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Categorias</a>
+        </li>
+      </ul>
+      <li class="nav-item active"></li> 
+    <a class="nav-link-dark" href="/login">Iniciar Sesion</a>
+    </div>
+  </nav>
+      <div>
+
+        <%= datos[0].ID %>
+        <img src="<%= datos[0].Dir_img %>" hspace="2" vspace="2" style="float: left;" />
+        <p class="h1" style="color:rgb(26, 107, 182);" ><%= datos[0].Nombre %></p>
+        <p class="h4" style="color:rgb(26, 107, 182);" >Director: <small style="color: black;"><%= datos[0].Director %></small></p>
+        <p class="h4" style="color:rgb(26, 107, 182);" >Fecha de estreno: <small style="color: black;"><%= datos[0].Fecha_estreno %></small></p>
+        <p class="h4" style="color:rgb(26, 107, 182);" >Genero: <small style="color: black;"><%= datos[0].Genero %></small></p>
+        <p class="h4" style="color:rgb(26, 107, 182);" >Evaluacion: <small style="color: black;"><%=datos[0].Evaluacion%>/5</small></p>
+        <p class="h4" style="color:rgb(26, 107, 182);" >Sinopsis: <small style="color: black;"><%=datos[0].Sinopsis%></small></p>
+
+
+        </div>
+
+
+
+</body>
+</html>
