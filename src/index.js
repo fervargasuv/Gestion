@@ -27,7 +27,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new PassportLocal(function(username,password,done){
-    conn.query('select * From administrador Where Nombre=? and Contra=?',[username,password],(err,resp,campos)=>{
+    conn.query('select * From usuario Where Nombre=? and Contrasena=?',[username,password],(err,resp,campos)=>{
     try{ 
         var user;
         var pass;
@@ -38,7 +38,7 @@ passport.use(new PassportLocal(function(username,password,done){
         }
         else{
             user = resp[0].Nombre;
-            pass = resp[0].Contra;
+            pass = resp[0].Contrasena;
         }
 
     if(username === user && password === pass){
@@ -63,12 +63,8 @@ passport.deserializeUser(function(id,done){
 
 // rutas
 app.use(require('./routes/select.js'));
-app.use(require('./routes/update.js'));
-app.use(require('./routes/delete.js'));
-app.use(require('./routes/alter.js'));
-app.use(require('./routes/insert.js'));
-app.use(require('./routes/drop.js'));
-app.use(require('./routes/login.js'));
+
+
 //SOLO USAR DROP AL FINAL O PRODUCIRA PROBLEMAS CON LA TABLA A ELIMINAR POR LOS DATOS
 
 
