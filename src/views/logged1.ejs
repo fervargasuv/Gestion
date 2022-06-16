@@ -21,7 +21,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="nav-link" href="/">Proyecto Riesgos</a>
+    <a class="nav-link" href="/">Proyecto Riesgos, Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,19 +29,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/logged">Inicio <span class="sr-only">(actual)</span></a>
+          <a class="nav-link" href="/logged1">Inicio <span class="sr-only">(actual)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/proyecto">Nuevo Proyecto</a>
+          <a class="nav-link " href="/solicitud">Solicitud</a>
         </li>
       </ul>
       <li class="nav-item active"></li> 
     </div>
   </nav>
-
 <main> 
   <div class="container pt-4 p-3">
-    <div class="row col-md-12">
+    <div class="row">
       <% for(var i = 0; i < datos.length; i++){ %>
         <div class="col-md-4 mb-3">
           <div class="card text-center">
@@ -49,7 +48,7 @@
               <img class="circular--square" style="width: 100px; height:100px; border-radius: 160px; border: 2px solid #666;" src="https://avatars.dicebear.com/api/initials/<%=datos[i].NombreP%>.svg">
               <h3 class="card-title text-capitalize"><%= datos[i].NombreP %></h3>
               <p class="m-2"><%= datos[i].Area %></p>
-              <a href="/analisis/<%= datos[i].ID_P %>" class="btn btn-secondary mb-2">Ver</a>
+              <a href="/analisis2/<%= datos[i].ID_P %>" class="btn btn-secondary mb-2">Ver</a>
               <a class="btn btn-danger mb-2" onclick= "sure(<%= datos[i].ID_P %>)">Eliminar</a>
             </div>
 
@@ -72,7 +71,7 @@
         confirmButtonText: 'Confirm'
         }).then((result) => {
         if (result.isConfirmed) {
-            window.location = '/delete/' + id;
+            window.location = '/delete2/' + id;
         }
         })
     }

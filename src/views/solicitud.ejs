@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingreso</title>
+    <title>Proyecto Riesgos</title>
     <!-- Bootstrap -->
     <link 
         rel="stylesheet" 
@@ -18,50 +18,48 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
         crossorigin="anonymous"
     ></script>
-
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="nav-link" href="/">Analisis riesgos</a>
+    <a class="nav-link" href="/">Proyecto Riesgos, Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
-        </li> -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/logged1">Inicio <span class="sr-only">(actual)</span></a>
+        </li>
         <li class="nav-item">
-
+          <a class="nav-link " href="/solicitud">Solicitud</a>
         </li>
       </ul>
       <li class="nav-item active"></li> 
-    
     </div>
   </nav>
-    <form action="/login" method="POST">
-      <div class="mb-3 mt-3 row">
-        <label for="Usuario" class="col-md-4 col-form-label text-md-end"><p class = "h3">Usuario:</p></label>
-        
-        <div class="col-md-6 mt-3">
-          <input type="text" name="username" id=""><br>
-        </div>
-      </div>
 
-      <div class="mb-3 mt-3 row">
-        <label for="contra" class="col-md-4 col-form-label text-md-end"><p class = "h3"">Contraseña:</p></label>
-        
-        <div class="col-md-6 mt-3">
-          <input type="password" name="password" id="">
+<main> 
+  <h1>Solicitudes</h1>
+  <div class="container pt-4 p-3">
+    <div class="row">
+      <% for(var i = 0; i < datos.length; i++){ %>
+        <div class="col-md-4 mb-3">
+          <div class="card text-center">
+            <div class="card-body">
+              <img class="circular--square" style="width: 100px; height:100px; border-radius: 160px; border: 2px solid #666;" src="https://avatars.dicebear.com/api/initials/<%=datos[i].NombreP%>.svg">
+              <h3 class="card-title text-capitalize"><%= datos[i].NombreP %></h3>
+              <p class="m-2"><%= datos[i].Area %></p>
+              <a href="/evaluacion/<%= datos[i].ID_P %>" class="btn btn-secondary mb-2">Ver</a>
+              <!-- <a href="/delete/<%= datos[i].ID_P %>" class="btn btn-danger mb-2">Eliminar</a> -->
+            </div>
+          </div>
         </div>
-      </div>
+        <% } %>
+    </div>
+  </div>
 
-      <div class="mb-3 row mt-3">
-        <div class="col-md-6 offset-md-4">
-          <input type="submit" class="btn btn-primary" value="Enviar">
-        </div>
-      </div>
-    </form>
+</main>
+
 </body>
 </html>
