@@ -27,38 +27,45 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new PassportLocal(function(username,password,done){
-    conn.query('select * From usuario Where Nombre=? and Contrasena=?',[username,password],(err,resp,campos)=>{
-    try{ 
-        var user;
-        var pass;
-
-        if(resp==null){
-            user="xdxd";
-            pass="xdxd";
+    conn.query('select * From usuario Where Correo=? and Contrasena=?',[username,password],(err,user)=>{
+        if(err){
+            console.log(err);
         }
         else{
-            user = resp[0].Nombre;
-            pass = resp[0].Contrasena;
+            // console.log(user);
+            if(user.length == 0){
+                done(null, false);
+            }
+            else if(user[0].Admin == 1){
+                // console.log("hola4");
+                return done(null, {id: user[0].Correo, admin: user[0].Admin});
+            }
+            else if(user[0].Admin == 0){
+                // console.log("hola5");
+                return done(null,{id: user[0].Correo, admin: user[0].Admin});
+            }
+            else{
+                // console.log("hola6");
+                done(null, false);
+            }  
         }
-
-    if(username === user && password === pass){
-        console.log(resp);
-     return done(null,{id:resp[0].Nombre, name: resp[0].Nombre});
-    }
-}catch(e){
-    done(null,false);
-}})
-    
-     
+    });
 }));
 
 //Serialización, parar la información para identificar usuario en passport
 passport.serializeUser(function(user,done){
-     done(null,user.id);
+    // console.log("hola3")
+    // console.log(user);
+     done(null,user);
 });
 //Deserializacion
-passport.deserializeUser(function(id,done){
-     done(null, {id:1, name: "Manuel"})
+passport.deserializeUser(function(user,done){
+    // console.log("hola1");
+    process.nextTick(function() {
+        // console.log("hola13");
+        // console.log(user);
+        return done(null, user);
+    });
 });
 
 // rutas

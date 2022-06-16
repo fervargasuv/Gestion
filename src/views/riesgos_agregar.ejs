@@ -45,10 +45,10 @@
   <!-- <div class="row">
     <div class="card-group mt-3"> -->
       <div class='col-md-3 mt-3 card ' id="tabla_de_proyecto">
-        <form action="/riesgos" method="post" class="card-body">
+        <form action="/riesgos_agregar/save/<%= datos[0].ID_P%>" method="post" class="card-body">
           <h3 class='card-title'>Agregar Riesgos</h3>
         <div class="form-group">
-            <input type="text" name="NombreR" class="form-control" required="text"  placeholder="Nombre del riesgo"> 
+            <input type="text" name="Nombre" class="form-control" required="text"  placeholder="Nombre del riesgo"> 
         </div>
         <div class="form-group">
             <select  name="Probabilidad" required class="form-control"  placeholder="Probabilidad de ocurrencia del riesgo"> 
@@ -74,39 +74,20 @@
             <input type="text" name="Tipo" class="form-control"  required="text" placeholder="Tipo de riego"> 
         </div>
         <div class="form-group">
-            <textarea rows="3" cols="30" name="Descripcion" class="form-control" required="text" placeholder="Breve descripcion del riesgo"> </textarea>
+            <input rows="3" cols="30" name="Descripcion" class="form-control" required="text" placeholder="Breve descripcion del riesgo"> </input>
         </div>
-        <input type="hidden"  name="ID_P" value='<%= ID[0].ID_P %>'>
-        <div class="form-group">
-          <input type="hidden" name="Opinion" value="<%= ID[0].Opinion %>">
+        <div class="card-body row" style="padding: auto;">
+          <h5 class="col-md-12"> Comentarios </h5>
+          <div class="col-md-12" >
+              <label class="form-label">Ingrese comentarios de edicion (no obligatorio)</label>
+              <input type="text" placeholder="comentarios...." name="Comentario" class="form-control">
+          </div> 
         </div>
-        <a class="btn btn-primary" href="/logged">Salir</a>
         <input type="submit" class="btn btn-primary">
+        <a class="btn btn-primary" href="/riesgos_agregar/<%= datos[0].ID_P %>">Agregar nuevo riesgo</a>
+        <a class="btn btn-primary" href="/solicitud">Salir</a>
         </form>
       </div>
-
-      <!-- <div class="card mb-3 mt-3"> 
-        <div class="card-body">
-          <h5 class="card-title">Tabla de Probabilidad </h5>
-          <p class="card-text">Use esta tabla como referencia para ingresar sus datos</p>
-        </div>
-        <div>
-          <img class="card-img-bottom" src="imagen.jpg">
-        </div>
-      </div> 
-
-      <div class="card mb-3 mt-3"> 
-        <div class="card-body">
-          <h5 class="card-title">Tabla de impacto </h5>
-          <p class="card-text">Use esta tabla como referencia para ingresar sus datos</p>
-        </div>
-        <div>
-          <img class="card-img-bottom" src="imagen1.jpg" >
-        </div> -->
-       
-      <!-- </div> 
-    </div> -->
-  <!-- </div> -->
 
 </main>
 
